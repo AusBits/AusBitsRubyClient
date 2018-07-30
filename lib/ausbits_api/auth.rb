@@ -1,4 +1,4 @@
-module PeatioAPI
+module ausbitsAPI
   class Auth
 
     def initialize(access_key, secret_key)

@@ -2,7 +2,7 @@ require 'json'
 require 'net/http'
 require_relative 'client/version'
 
-module PeatioAPI
+module ausbitsAPI
   class Client
 
     attr :auth

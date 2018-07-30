@@ -2,4 +2,4 @@ language: ruby
 rvm:
   - 2.1.1
 notifications:
-  slack: peatio:F2FWrCANEK3QcjHC16OO541l
+  slack: ausbits:F2FWrCANEK3QcjHC16OO541l

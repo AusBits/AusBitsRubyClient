@@ -2,12 +2,12 @@ require 'json'
 require 'eventmachine'
 require 'faye/websocket'
 
-module PeatioAPI
+module ausbitsAPI
   class StreamingClient < Client
 
     def initialize(options={})
       super
-      @endpoint = options[:endpoint] || 'wss://peatio.com:8080'
+      @endpoint = options[:endpoint] || 'wss://ausbits.com.au:8080'
       @logger   = options[:logger] || Logger.new(STDOUT)
     end
 

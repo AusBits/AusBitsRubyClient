@@ -1,9 +1,9 @@
-Ruby client for Peatio API
+Ruby client for ausbits API
 ==========================
 
-[![Build Status](https://travis-ci.org/peatio/peatio-client-ruby.png?branch=master)](https://travis-ci.org/peatio/peatio-client-ruby)
+[![Build Status](https://travis-ci.org/ausbits/ausbits-client-ruby.png?branch=master)](https://travis-ci.org/ausbits/ausbits-client-ruby)
 
-`peatio-client-ruby` is a client for Peatio API, support all Peatio API functions like submit order, get tickers, etc. It's also a reference client implementation, where you can find how to authenticate private Peatio API.
+`ausbits-client-ruby` is a client for ausbits API, support all ausbits API functions like submit order, get tickers, etc. It's also a reference client implementation, where you can find how to authenticate private ausbits API.
 
 ### Requirements ###
 
@@ -12,7 +12,7 @@ Ruby client for Peatio API
 
 ### Install ###
 
-    gem install peatio_client
+    gem install ausbits_client
 
 ### Usage ###
 
@@ -22,13 +22,13 @@ TBD
 
 #### REST API client ####
 
-Use `#get` or `#post` to access API after you created a `PeatioAPI::Client`:
+Use `#get` or `#post` to access API after you created a `ausbitsAPI::Client`:
 
 ```ruby
-  require 'peatio_client'
+  require 'ausbits_client'
 
   # Client can be initialized not providing key and sercet, but this client can only access public APIs
-  client_public = PeatioAPI::Client.new endpoint: 'https://peatio.com'
+  client_public = ausbitsAPI::Client.new endpoint: 'https://ausbits.com.au'
 
   # GET public api /api/v2/markets
   client_public.get_public '/api/v2/markets'
@@ -36,32 +36,32 @@ Use `#get` or `#post` to access API after you created a `PeatioAPI::Client`:
   # To build a full functional client which can access both public/private api, access_key/secret_key
   # are required.
   #
-  # `endpoint` can be ignored or set to any Peatio powered exchange.
+  # `endpoint` can be ignored or set to any ausbits powered exchange.
   #
   # If there's no data received in `timeout` seconds, Net::OpenTimeout will be raised. Default to 60.
   #
-  client = PeatioAPI::Client.new access_key: 'your_access_key', secret_key: 'your_secret_key', endpoint: 'https://peatio.com', timeout: 60
+  client = ausbitsAPI::Client.new access_key: 'your_access_key', secret_key: 'your_secret_key', endpoint: 'https://ausbits.com.au', timeout: 60
 
-  # GET private api /api/v2/orders with 'market=btccny'
-  client.get '/api/v2/orders', market: 'btccny'
+  # GET private api /api/v2/orders with 'market=btcaud'
+  client.get '/api/v2/orders', market: 'btcaud'
 
   # POST to create an order
-  client.post '/api/v2/orders', market: 'btccny', side: 'sell', volume: '0.11', price: '2955.0'
+  client.post '/api/v2/orders', market: 'btcaud', side: 'sell', volume: '0.11', price: '2955.0'
 
   # POST to create multiple orders at once
-  client.post '/api/v2/orders/multi', market: 'btccny', orders: [{side: 'buy', volume: '0.15', price: '2955.0'}, {side: 'sell', volume: '0.16', price: '2956'}]
+  client.post '/api/v2/orders/multi', market: 'btcaud', orders: [{side: 'buy', volume: '0.15', price: '2955.0'}, {side: 'sell', volume: '0.16', price: '2956'}]
 ```
 
-Check [Peatio API v2 Documents](https://peatio.com/documents/api_v2) for details on Peatio API.
+Check [ausbits API v2 Documents](https://ausbits.com.au/documents/api_v2) for details on ausbits API.
 
 ### Streaming API client ###
 
 Streaming API client is built upon eventmachine, it will start an endless loop to accept updates from server side, you only need to provide a callback block:
 
 ```ruby
-  require 'peatio_client'
+  require 'ausbits_client'
 
-  client = PeatioAPI::StreamingClient.new access_key: 'your_access_key', secret_key: 'your_secret_key', endpoint: 'wss://peatio.com:8080'
+  client = ausbitsAPI::StreamingClient.new access_key: 'your_access_key', secret_key: 'your_secret_key', endpoint: 'wss://ausbits.com.au:8080'
   client.run do |message|
     # do whatever you want with message
   end
@@ -69,7 +69,7 @@ Streaming API client is built upon eventmachine, it will start an endless loop t
 
 ### License ###
 
-`peatio-client-ruby` is released under MIT license. See [http://peatio.mit-license.org](http://peatio.mit-license.org) for more information.
+`ausbits-client-ruby` is released under MIT license. See [http://ausbits.mit-license.org](http://ausbits.mit-license.org) for more information.
 
 ### How To Contribute ###
 

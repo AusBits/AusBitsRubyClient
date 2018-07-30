@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    peatio_client (0.0.7)
+    ausbits_client (0.0.7)
       activesupport
       faye-websocket
 
@@ -31,5 +31,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  peatio_client!
+  ausbits_client!
   rake
